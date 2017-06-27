@@ -12,24 +12,27 @@ public class NumberToWords {
 
       string tensMap [] = { "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 
-      string NumberToWords(int input) {
+      string InputToWords(int input) {
         if (input == 0)
           return "invalid";
+
+        if (input < 0 )
+        return "minus " + InputToWords(abs(input));  
 
         string output = "";
 
         if ((input/1000000) > 0 ) {
-          output += NumberToWords(input/1000000) + " million ";
+          output += InputToWords(input/1000000) + " million ";
           input %= 1000000;
         }
 
         if ((input/1000) > 0 ) {
-          output += NumberToWords(input/1000) + " thousand ";
+          output += InputToWords(input/1000) + " thousand ";
           input %= 1000;
         }
 
         if ((number/100) > 0 ) {
-          output += NumberToWords(number/100) + " hundred ";
+          output += InputToWords(input/100) + " hundred ";
           input %=100;
         }
 
@@ -43,10 +46,8 @@ public class NumberToWords {
           }
         }
         return output;
-      }
-
-
-
-        return output;
-    }
 }
+
+
+
+ 
